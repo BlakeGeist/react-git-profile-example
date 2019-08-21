@@ -13,7 +13,8 @@ const initialState = {
   hasSearched: false
 };
 
-function profileDataFunction(profileDoesNotExist, profiles, state) {
+//this seems like an odd spot to be declaring this function
+function updateProfiles(profileDoesNotExist, profiles, state) {
   if (profileDoesNotExist) {
     return {
       ...state,
@@ -42,9 +43,8 @@ function reducer(state = initialState, action) {
       const profileDoesNotExist = state.profiles.filter(
         (x) => { return x.id === action.profileData.id; }
       ).length < 1;
-
       const theProfiles = [...state.profiles, action.profileData];
-      return profileDataFunction(profileDoesNotExist, theProfiles, state);
+      return updateProfiles(profileDoesNotExist, theProfiles, state);
     }
     case 'removeProfile': {
       const profiles = removeProfileByIndex(action.index);
