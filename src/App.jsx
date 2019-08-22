@@ -13,7 +13,7 @@ const initialState = {
   hasSearched: false
 };
 
-//this seems like an odd spot to be declaring this function
+// this seems like an odd spot to be declaring this function
 function updateProfiles(profileDoesNotExist, profiles, state) {
   if (profileDoesNotExist) {
     return {
