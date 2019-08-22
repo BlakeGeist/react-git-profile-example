@@ -22,12 +22,12 @@ const Form = ({ userName, failedToFind, dispatch }, props) => {
       data.addedAt = moment().toDate();
       dispatch({ type: 'addProfile', profileData: data });
     } else {
-      // props.dispatch({ type: 'setItem', name: 'failedToFind', payload: true });
+      dispatch({ type: 'setItem', name: 'failedToFind', payload: true });
       setTimeout(() => {
-        // props.dispatch({ type: 'setItem', name: 'failedToFind', payload: false });
+        dispatch({ type: 'setItem', name: 'failedToFind', payload: false });
       }, 3000);
     }
-    // props.dispatch({ type: 'setItem', name: 'userName', payload: '' });
+    dispatch({ type: 'setItem', name: 'userName', payload: '' });
   };
   return (
     <>
