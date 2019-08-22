@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ExampleListItem = ({ clickAction, userName }) => {
+const ExampleListContainer = ({ clickAction, userName }) => {
   return (
     <button
       onClick={() => {
@@ -14,9 +14,9 @@ const ExampleListItem = ({ clickAction, userName }) => {
   );
 };
 
-ExampleListItem.propTypes = {
+ExampleListContainer.propTypes = {
   clickAction: PropTypes.func.isRequired,
   userName: PropTypes.string.isRequired
 };
 
-export default ExampleListItem;
+export default ExampleListContainer;

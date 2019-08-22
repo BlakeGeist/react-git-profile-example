@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ExampleListItem from './ExampleListItem';
+import ExampleListContainer from './ExampleListContainer';
 
 const ExampleList = ({ clickAction }) => {
   // create an array that contains all of the gitHub accounts to be used in the examples
   const exampleUserAccounts = ['BlakeGeist', 'Reddit', 'Facebook', 'Google', 'GitHub'];
   // create a var that is the rendered template of an example list item
-  const renderExampleListItem = (account, index) => {
+  const renderExampleListContainer = (account, index) => {
     return (
-      <ExampleListItem
+      <ExampleListContainer
         key={index}
         clickAction={clickAction}
         userName={account}
@@ -26,7 +26,7 @@ const ExampleList = ({ clickAction }) => {
               array and display each rendered template
             */
           }
-          {exampleUserAccounts.map((account, i) => renderExampleListItem(account, i))}
+          {exampleUserAccounts.map((account, i) => renderExampleListContainer(account, i))}
         </div>
       </div>
     </div>

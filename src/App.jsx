@@ -3,7 +3,7 @@ import './App.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Header from './components/Header';
-import Profiles from './components/profiles/Profiles';
+import ProfilesContainer from './components/profiles/ProfilesContainer';
 
 const initialState = {
   failedToFind: false,
@@ -65,7 +65,7 @@ const App = () => {
     <Provider store={store}>
       <div className="body">
         <Header title="The GitHub Cards App" />
-        <Profiles />
+        <ProfilesContainer />
       </div>
     </Provider>
   );
