@@ -125,7 +125,7 @@ Profile.propTypes = {
   htmlUrl: PropTypes.string.isRequired,
   location: PropTypes.string,
   moveCard: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   profilesCount: PropTypes.number.isRequired,
   publicRepos: PropTypes.number.isRequired,
   removeCard: PropTypes.func.isRequired,
@@ -134,7 +134,8 @@ Profile.propTypes = {
 
 Profile.defaultProps = {
   company: '',
-  location: ''
+  location: '',
+  name: ''
 };
 
 export default Profile;
