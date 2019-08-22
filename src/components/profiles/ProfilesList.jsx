@@ -9,7 +9,7 @@ function onlyUnique(value, index, self) {
   return self.indexOf(value) === index;
 }
 
-const ProfilesList = (props) => {
+const ProfilesContainer = (props) => {
   const [profiles, setCards] = useState(props.profiles);
   if (profiles.length !== props.profiles.length) {
     setCards(props.profiles.filter(onlyUnique));
@@ -57,14 +57,11 @@ const ProfilesList = (props) => {
 
     return (
       <>
-        { profiles.length > 0
-          && (
-          <ProfilesControls
-            profiles={profiles}
-            update={update}
-            setCards={setCards}
-          />
-          )}
+        <ProfilesControls
+          profiles={profiles}
+          update={update}
+          setCards={setCards}
+        />
         <div className="profiles">
           {profiles.map((profile, i) => renderProfile(profile, i))}
         </div>
@@ -78,4 +75,4 @@ const mapStateToProps = (state) => ({
   rawProfiles: state.rawProfiles,
   hasSearched: state.hasSearched
 });
-export default connect(mapStateToProps)(ProfilesList);
+export default connect(mapStateToProps)(ProfilesContainer);

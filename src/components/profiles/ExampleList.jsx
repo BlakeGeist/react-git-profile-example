@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ExampleListContainer from './ExampleListContainer';
+import ExampleListItem from './ExampleListItem';
 
 const ExampleList = ({ clickAction }) => {
   // create an array that contains all of the gitHub accounts to be used in the examples
@@ -8,7 +8,7 @@ const ExampleList = ({ clickAction }) => {
   // create a var that is the rendered template of an example list item
   const renderExampleListContainer = (account, index) => {
     return (
-      <ExampleListContainer
+      <ExampleListItem
         key={index}
         clickAction={clickAction}
         userName={account}
