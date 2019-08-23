@@ -1,3 +1,17 @@
+html, body, #root, main {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.body {
+}
+
+section {
+}
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
 

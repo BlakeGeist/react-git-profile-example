@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Header from './components/Header';
 import ProfilesContainer from './components/profiles/ProfilesContainer';
-
+import 'babel-polyfill';
 const initialState = {
   failedToFind: false,
   userName: '',
