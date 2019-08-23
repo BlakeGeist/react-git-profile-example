@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import update from 'immutability-helper';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Profile from './Profile';
 import ProfilesControls from './ProfilesControls';
 
@@ -26,7 +26,7 @@ const ProfilesContainer = ({ profiles, dispatch }) => {
         );
         dispatch({ type: 'setItem', name: 'profiles', payload: sortedProfiles });
       },
-      [profilesArray],
+      [profilesArray, dispatch],
     );
 
     const removeCard = (index) => {
@@ -68,6 +68,11 @@ const ProfilesContainer = ({ profiles, dispatch }) => {
       </>
     );
   }
+};
+
+ProfilesContainer.propTypes = {
+  profiles: PropTypes.arrayOf(PropTypes.shape([])).isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
