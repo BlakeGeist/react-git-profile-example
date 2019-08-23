@@ -5,7 +5,7 @@ import ProfilesSearch from './ProfilesSearch';
 import ProfileSort from './ProfileSort';
 
 const ProfilesControls = ({
-  profiles, update, setCards, dispatch, rawProfiles, hasSearched
+  profiles, update, setProfiles, dispatch, rawProfiles, hasSearched
 }) => {
   const handleSort = (e) => {
 
@@ -17,7 +17,7 @@ const ProfilesControls = ({
     const updatedProfiles = update(profiles, {
       $set: sortedProfiles.slice(0),
     });
-    setCards(
+    setProfiles(
       updatedProfiles,
     );
 
@@ -30,7 +30,7 @@ const ProfilesControls = ({
       const updatedProfiles = update(profiles, {
         $set: rawProfiles,
       });
-      setCards(
+      setProfiles(
         updatedProfiles,
       );
       dispatch({ type: 'setItem', name: 'profiles', payload: updatedProfiles });
@@ -43,7 +43,7 @@ const ProfilesControls = ({
     const updatedProfiles = update(profiles, {
       $set: filteredArray,
     });
-    setCards(
+    setProfiles(
       updatedProfiles,
     );
     dispatch({ type: 'setItem', name: 'profiles', payload: updatedProfiles });
@@ -61,7 +61,7 @@ const ProfilesControls = ({
 ProfilesControls.propTypes = {
   profiles: PropTypes.arrayOf(PropTypes.shape([])).isRequired,
   update: PropTypes.func.isRequired,
-  setCards: PropTypes.func.isRequired,
+  setProfiles: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
   rawProfiles: PropTypes.arrayOf(PropTypes.shape([])).isRequired,
   hasSearched: PropTypes.bool.isRequired,

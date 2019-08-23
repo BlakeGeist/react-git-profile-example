@@ -9,28 +9,28 @@ function onlyUnique(value, index, self) {
   return self.indexOf(value) === index;
 }
 
-const ProfilesContainer = (props) => {
-  const [profiles, setCards] = useState(props.profiles);
-  if (profiles.length !== props.profiles.length) {
-    setCards(props.profiles.filter(onlyUnique));
+const ProfilesContainer = ({ profiles, dispatch }) => {
+  const [profilesArray, setProfiles] = useState(profiles);
+  if (profilesArray.length !== profiles.length) {
+    setProfiles(profiles.filter(onlyUnique));
   }
   {
     const moveCard = useCallback(
       (dragIndex, hoverIndex) => {
-        const dragCard = profiles[dragIndex];
-        const sortedCards = update(profiles, {
+        const dragCard = profilesArray[dragIndex];
+        const sortedProfiles = update(profilesArray, {
           $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]],
         });
-        setCards(
-          sortedCards,
+        setProfiles(
+          sortedProfiles,
         );
-        props.dispatch({ type: 'setItem', name: 'profiles', payload: sortedCards });
+        dispatch({ type: 'setItem', name: 'profiles', payload: sortedProfiles });
       },
-      [profiles, props],
+      [profilesArray],
     );
 
     const removeCard = (index) => {
-      props.dispatch({ type: 'removeProfile', index });
+      dispatch({ type: 'removeProfile', index });
     };
 
     const renderProfile = (profile, index) => {
@@ -40,7 +40,7 @@ const ProfilesContainer = (props) => {
           id={profile.id}
           index={index}
           moveCard={moveCard}
-          profilesCount={profiles.length}
+          profilesCount={profilesArray.length}
           removeCard={removeCard}
           avatarUrl={profile.avatar_url}
           createdAt={profile.created_at}
@@ -58,12 +58,12 @@ const ProfilesContainer = (props) => {
     return (
       <>
         <ProfilesControls
-          profiles={profiles}
+          profiles={profilesArray}
           update={update}
-          setCards={setCards}
+          setProfiles={setProfiles}
         />
         <div className="profiles">
-          {profiles.map((profile, i) => renderProfile(profile, i))}
+          {profilesArray.map((profile, i) => renderProfile(profile, i))}
         </div>
       </>
     );
