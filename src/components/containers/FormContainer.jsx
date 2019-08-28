@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import moment from 'moment';
-import ExampleList from '../profiles/ExampleList';
+import ExampleList from '../features/profiles/ExampleList';
 import Form from '../features/Form';
 
 const FormContainer = ({ userName, failedToFind, dispatch }, props) => {

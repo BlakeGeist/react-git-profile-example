@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 const ProfilesSearch = ({ handleSearch }) => {
   return (
     <div>
-      <input onChange={handleSearch} type="text" placeholder="Search..." />
+      <input
+        onChange={handleSearch}
+        type="text"
+        placeholder="Search..."
+        />
     </div>
   );
 };

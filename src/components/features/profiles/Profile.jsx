@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useDrag, useDrop } from 'react-dnd';
 import moment from 'moment';
-import ItemTypes from '../../ItemTypes';
-import Increment from '../features/Increment';
+import ItemTypes from '../../../ItemTypes';
+import Increment from '../Increment';
 
 const style = {
   cursor: 'move',
