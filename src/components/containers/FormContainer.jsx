@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import moment from 'moment';
-import ExampleList from './profiles/ExampleList';
+import ExampleList from '../profiles/ExampleList';
+import Form from '../features/Form';
 
-const Form = ({ userName, failedToFind, dispatch }, props) => {
+const FormContainer = ({ userName, failedToFind, dispatch }, props) => {
   const handleSubmit = async (name, event) => {
     const apiCall = `https://api.github.com/users/${name}`;
     if (event) {
@@ -31,19 +32,10 @@ const Form = ({ userName, failedToFind, dispatch }, props) => {
   };
   return (
     <>
-      <div className={`${failedToFind ? 'no-user-found' : ''} form-container`}>
-        {failedToFind ? <div className="failed-to-find-text">Failed to Find User</div> : ''}
-        <form onSubmit={(event) => handleSubmit(userName, event)}>
-          <input
-            type="text"
-            value={userName}
-            onChange={(event) => dispatch({ type: 'setItem', name: 'userName', payload: event.target.value })}
-            placeholder="GitHub username"
-            required
-          />
-          <button type="submit">Fetch GitHub Account by Username</button>
-        </form>
-      </div>
+      <Form
+        handleSubmit={handleSubmit}
+        dispatch={dispatch}
+      />
       <ExampleList clickAction={async (name, event) => {
         await dispatch({ type: 'setItem', name: 'userName', payload: name });
         handleSubmit(name);
@@ -58,10 +50,10 @@ const mapStateToProps = (state) => ({
   userName: state.userName
 });
 
-Form.propTypes = {
+FormContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   failedToFind: PropTypes.bool.isRequired,
   userName: PropTypes.string.isRequired
 };
 
-export default connect(mapStateToProps)(Form);
+export default connect(mapStateToProps)(FormContainer);
