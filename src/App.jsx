@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import Header from './components/Header';
-import ProfilesContainer from './components/profiles/ProfilesContainer';
+import Header from './components/features/Header';
+import ProfilesContainer from './components/containers/ProfilesContainer';
 import 'babel-polyfill';
 const initialState = {
   failedToFind: false,

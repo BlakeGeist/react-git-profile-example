@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDrag, useDrop } from 'react-dnd';
 import moment from 'moment';
 import ItemTypes from '../../ItemTypes';
-import Increment from '../Increment';
+import Increment from '../features/Increment';
 
 const style = {
   cursor: 'move',

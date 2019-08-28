@@ -60,13 +60,15 @@ module.exports = (env, options) => {
             ]
         },
         plugins: [
-            new HtmlWebpackPlugin(),
+            new HtmlWebpackPlugin({
+              template: 'public/index.html'
+            }),
             new MiniCssExtractPlugin({
                   // Options similar to the same options in webpackOptions.output
                   // both options are optional
                   filename: '[name].css',
                   chunkFilename: '[id].css',
-                }),            
+                }),
         ]
 
     };
